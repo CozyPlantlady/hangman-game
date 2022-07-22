@@ -1,3 +1,4 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import requests
+
+word = requests.get("https://random-word-api.herokuapp.com/word?lang=en&length=6&number=5")
+print(word.text)
