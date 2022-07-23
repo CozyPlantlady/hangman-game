@@ -55,6 +55,7 @@ If user chooses "No", it takes them to the start screen.
 ### Fixed Issues
 
 ### Not fixed
+- When turning letters of the word to underscore, word_to_blank function returns 10 character instead of 6. Since this clearly isn't working, I'll just change the function.
 
 
 ### Testing with code validators
