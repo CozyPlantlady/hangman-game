@@ -12,7 +12,7 @@ wrong_answer = 0
 
 def user_guess():
     """
-    Getting the users guess
+    Getting the users answer and adding it to guessed letters list
     """
     guessed_letter = input("Guess a letter:").upper()
     guessed_letters.append(guessed_letter)
@@ -29,18 +29,18 @@ def show_word(word):
     """
     for letter in word:
         if guess in letter:
-            print(f"{letter}")
+            print(guess, end=" ")
         else:
-            print("_")
+            print("_", end=" ")
 
 
 while wrong_answer <= 6:
     user_guess()
     show_word(word)
-    if guess in word:
-        print("Right!")
-    elif guess in guessed_letters:
-        print("You already guessed {letter}")
-    else:
-        print("Nope!")
+    print(word)
+    if guess not in word:
         wrong_answer += 1
+    elif guess in guessed_letters:
+        print("You already guessed {guess}. Try again.")
+    else:
+        print("Right!")
