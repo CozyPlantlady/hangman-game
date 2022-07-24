@@ -1,4 +1,5 @@
 import requests
+from logo import print_logo
 
 get_word = requests.get("https://random-word-api.herokuapp.com/word?lang=en&length=6&number=1")
 
@@ -34,13 +35,16 @@ def show_word(word):
             print("_", end=" ")
 
 
-    while wrong_answer <= 6:
-        user_guess()
-        show_word(word)
-        print(word)
-        if guess not in word:
-            wrong_answer += 1
-        elif guess in guessed_letters:
-            print("You already guessed {guess}. Try again.")
-        else:
-            print("Right!")
+print_logo()
+
+
+while wrong_answer <= 6:
+    user_guess()
+    show_word(word)
+    print(word)
+    if guess not in word:
+        wrong_answer += 1
+    elif guess in guessed_letters:
+        print("You already guessed {guess}. Try again.")
+    else:
+        print("Right!")

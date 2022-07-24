@@ -61,6 +61,7 @@ If user chooses "No", it takes them to the start screen.
 - Creating a infinite loop when guessing a letter.
 
 - Only showing the first correctly guessed letter
+- Showing the whole word when guessing a letter
 
 ### Testing with code validators
 
@@ -81,5 +82,7 @@ If user chooses "No", it takes them to the start screen.
 ### Other things I used while coding this game:
 
 Balsamiq wireframes
+
+[Text to ASCII generator](https://patorjk.com/software/taag)
 
 
