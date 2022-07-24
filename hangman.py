@@ -1,6 +1,3 @@
-wrong_answer = 6
-
-
 def print_hangman(wrong_answer):
     """
     Prints the hanged man depending on how many times user have guessed wrong
@@ -70,4 +67,3 @@ def print_hangman(wrong_answer):
         print("||.......GAME OVER")
     else:
         print("?")
-        
