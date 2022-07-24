@@ -32,16 +32,15 @@ def show_word(word):
             print(f"{letter}")
         else:
             print("_")
-        
+
 
 while wrong_answer <= 6:
     user_guess()
     show_word(word)
     if guess in word:
         print("Right!")
-    elif letter in guessed_letters:
+    elif guess in guessed_letters:
         print("You already guessed {letter}")
     else:
         print("Nope!")
         wrong_answer += 1
-
