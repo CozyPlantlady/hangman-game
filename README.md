@@ -77,6 +77,14 @@ If user chooses "No", it takes them to the start screen.
 
 ## CREDITS
 
+Code:
+- [To remove extra symbols from random word](https://www.journaldev.com/23674/python-remove-character-from-string)
+s = 'abc12321cba'
+
+print(s.translate({ord(i): None for i in 'abc'}))
+
+
+
 ### Validators:
 
 ### Other things I used while coding this game:
