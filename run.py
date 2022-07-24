@@ -1,5 +1,6 @@
 import requests
 from logo import print_logo
+from hangman import print_hangman
 
 get_word = requests.get("https://random-word-api.herokuapp.com/word?lang=en&length=6&number=1")
 
@@ -41,14 +42,14 @@ def game_start():
     """
     print_logo()
     print("Welcome!\n")
-    print("Start the game or read the rules?\nS for START and R for RULES")
-    user_input = input("S or R:")
-    if user_input.upper == "S":
-        game()
-    elif user_input.upper == "R":
-        rules()
-    else:
-        print("Please give a valid answer.")
+    #print("Start the game or read the rules?\nS for START and R for RULES")
+    #user_input = input("S or R:")
+    #if user_input.upper == "S":
+    game()
+    #elif user_input.upper == "R":
+    #    rules()
+    #else:
+    #    print("Please give a valid answer.")
 
 
 def rules():
@@ -63,6 +64,7 @@ def game():
         print(word)
         if guess not in word:
             wrong_answer += 1
+            print_hangman(wrong_answer)
         elif guess in guessed_letters:
             print("You already guessed {guessed_letter}. Try again.")
         else:
