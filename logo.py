@@ -13,5 +13,3 @@ def print_logo():
     print("             \_____|  \__,_| |_| |_| |_|  \___|              ")
     print("                                                             ")
     print("                                                             ")
-
-print_logo()

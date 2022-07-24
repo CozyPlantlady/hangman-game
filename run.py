@@ -35,16 +35,37 @@ def show_word(word):
             print("_", end=" ")
 
 
-print_logo()
-
-
-while wrong_answer <= 6:
-    user_guess()
-    show_word(word)
-    print(word)
-    if guess not in word:
-        wrong_answer += 1
-    elif guess in guessed_letters:
-        print("You already guessed {guess}. Try again.")
+def game_start():
+    """
+    Start screen
+    """
+    print_logo()
+    print("Welcome!\n")
+    print("Start the game or read the rules?\nS for START and R for RULES")
+    user_input = input("S or R:")
+    if user_input.upper == "S":
+        game()
+    elif user_input.upper == "R":
+        rules()
     else:
-        print("Right!")
+        print("Please give a valid answer.")
+
+
+def rules():
+    print("These are the rules for the hangman game")
+    game()
+
+
+def game():
+    while wrong_answer <= 6:
+        user_guess()
+        show_word(word)
+        print(word)
+        if guess not in word:
+            wrong_answer += 1
+        elif guess in guessed_letters:
+            print("You already guessed {guessed_letter}. Try again.")
+        else:
+            print("Right!")
+
+game_start()
