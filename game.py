@@ -1,6 +1,14 @@
+from logo import print_logo
+from hangman import print_hangman
+from guess import user_guess
+
 def game():
+    """
+    Main game loop
+    """
+    wrong_answer = 0
+    guessed_letter = ""
     print_logo()
-    print("Welcome!\n")
     while wrong_answer <= 6:
         user_guess()
         show_word(word)

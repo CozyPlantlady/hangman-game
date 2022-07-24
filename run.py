@@ -1,9 +1,3 @@
-
-from logo import print_logo
-from hangman import print_hangman
-
-
-
 #guessed_letters = []
 #guessed_letter = ""
 
