@@ -60,6 +60,7 @@ If user chooses "No", it takes them to the start screen.
 
 - Creating a infinite loop when guessing a letter.
 
+- Only showing the first correctly guessed letter
 
 ### Testing with code validators
 

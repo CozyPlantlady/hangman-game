@@ -34,13 +34,13 @@ def show_word(word):
             print("_", end=" ")
 
 
-while wrong_answer <= 6:
-    user_guess()
-    show_word(word)
-    print(word)
-    if guess not in word:
-        wrong_answer += 1
-    elif guess in guessed_letters:
-        print("You already guessed {guess}. Try again.")
-    else:
-        print("Right!")
+    while wrong_answer <= 6:
+        user_guess()
+        show_word(word)
+        print(word)
+        if guess not in word:
+            wrong_answer += 1
+        elif guess in guessed_letters:
+            print("You already guessed {guess}. Try again.")
+        else:
+            print("Right!")
