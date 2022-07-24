@@ -1,25 +1,23 @@
 from logo import print_logo
 from hangman import print_hangman
 from guess import user_guess
+from word import validate_word
+
+guessed_letters = user_guess()
+word = validate_word()
+
 
 def game():
     """
-    Main game loop
+    Main game loop gets functions from other files, and prints the hangman if user answers wrong
     """
-    wrong_answer = 0
-    guessed_letter = ""
+    wrong_answers = 0
     print_logo()
-    while wrong_answer <= 6:
+    while wrong_answers <= 6:
         user_guess()
-        show_word(word)
-        print(word)
-        if guess not in word:
-            wrong_answer += 1
-            print_hangman(wrong_answer)
-        elif guess in guessed_letters:
-            print("You already guessed {guessed_letter}. Try again.")
-        else:
-            print("Right!")
-
+        if guessed_letters not in word:
+            wrong_answers += 1
+            print_hangman(wrong_answers)
+        
 
 game()
