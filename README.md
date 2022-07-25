@@ -54,12 +54,19 @@ If user chooses "No", it takes them to the start screen.
 
 ### Fixed Issues
 - Word prints down as a column. FIX: add **end=" "** to print statement to make it a row.
-- When turning letters of the word to underscore, word_to_blank function returns 10 character instead of 6. Is it counting "" and []-characters? The extra symbols are coming from the API. Like this: ![](doc/readme-images/readme-glitch1.png "") FIX: added code to remove unwanted letters/symbols from the random word.
+- When turning letters of the word to underscore, word_to_blank function returns 10 character instead of 6. Is it counting "" and []-characters? The extra symbols are coming from the API. 
+Like this:
+
+![](doc/readme-images/readme-glitch1.png "") 
+
+FIX: added code to remove unwanted letters/symbols from the random word.
 - Creating a infinite loop when guessing a letter. 
 
 ### Not fixed
 - Only showing the first correctly guessed letter
 - Showing the whole word when guessing a letter
+- Printing error message 6 times (once for each letter)
+- Adding same letter to the guessed letters list
 
 ### Testing with code validators
 

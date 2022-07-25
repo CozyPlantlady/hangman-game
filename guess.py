@@ -13,11 +13,14 @@ def user_guess():
     return input_guess
 
 
+input_guess = user_guess()
+
+
 def collect_guessed_letters():
     """
     Collects letters user has guessed
     """
-    ### Needs to get input_guess value correctly
+    user_guess()
     guessed_letters.append(input_guess)
     print(f"\n Guessed letters:{guessed_letters}")
     print(guessed_letters)
@@ -29,7 +32,6 @@ def print_word():
     Takes values from user_guess and collect_guessed_letters
     to decide which letters to print.
     """
-    user_guess()
     collect_guessed_letters()
     for letter in word:
         if input_guess in letter:
@@ -47,5 +49,4 @@ guess = 0
 
 while guess <= 10:
     guess += 1
-    user_guess()
-    collect_guessed_letters()
+    print_word()
