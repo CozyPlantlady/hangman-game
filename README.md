@@ -63,10 +63,10 @@ FIX: added code to remove unwanted letters/symbols from the random word.
 - Creating a infinite loop when guessing a letter. 
 - Adding same letter to the guessed letters list, only showing the first correctly guessed letter Fixed, order that code was read was wrong.
 - Printing error message 6 times (once for each letter). fixed *for letter in word*
+- Showing the whole word when guessing a letter
 
 ### Not fixed
-
-- Showing the whole word when guessing a letter
+- game doesnt loop, or keeps looping without letting user to give a new value
 
 
 ### Testing with code validators
