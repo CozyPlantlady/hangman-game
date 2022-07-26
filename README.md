@@ -67,6 +67,7 @@ FIX: added code to remove unwanted letters/symbols from the random word.
 - Showing the whole word when guessing a letter
 - Printing error message 6 times (once for each letter)
 - Adding same letter to the guessed letters list
+- 
 
 ### Testing with code validators
 

@@ -2,7 +2,6 @@ from word import validate_word
 
 
 guessed_letters = []
-word = validate_word()
 
 
 def user_guess():
@@ -13,35 +12,26 @@ def user_guess():
     return input_guess
 
 
-input_guess = user_guess()
-
-
-def collect_guessed_letters():
-    """
-    Collects letters user has guessed
-    """
-    user_guess()
-    guessed_letters.append(input_guess)
-    print(f"\n Guessed letters:{guessed_letters}")
-    print(guessed_letters)
-    return guessed_letters
-
-
 def print_word():
     """
     Takes values from user_guess and collect_guessed_letters
     to decide which letters to print.
     """
-    collect_guessed_letters()
+    word = validate_word()
+    print(word)
+    input_guess = user_guess()
+    if input_guess in guessed_letters:
+        print(f"You already guessed {input_guess}. Try again.")
     for letter in word:
         if input_guess in letter:
             print(letter, end=" ")
-        elif input_guess in guessed_letters:
-            print("You already guessed {input_guess}. Try again.")
-        elif guessed_letters in letter:
+        elif input_guess in guessed_letters and word:
             print(letter, end=" ")
         else:
             print("_", end=" ")
+    guessed_letters.append(input_guess)
+    print(f"\n Guessed letters:{guessed_letters}")
+    return guessed_letters
 
 
 guess = 0
