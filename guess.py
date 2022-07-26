@@ -1,4 +1,5 @@
 from word import validate_word
+from hangman import print_hangman
 
 
 guessed_letters = []
@@ -20,6 +21,8 @@ def print_word():
     Takes values from user_guess and collect_guessed_letters
     to decide which letters to print.
     """
+    right_answer = 0
+    wrong_answer = 0
     word = validate_word()
     print(word)
     input_guess = user_guess()
@@ -28,11 +31,17 @@ def print_word():
     for letter in word:
         if input_guess in letter:
             print(letter, end=" ")
-        elif input_guess in guessed_letters and word:
+            guessed_letters.append(input_guess)
+            right_answer += 1
+        elif letter in guessed_letters and word:
             print(letter, end=" ")
+        elif input_guess not in word:
+            print(f"Sorry, {input_guess} is not in this word.")
+            wrong_answer += 1
+            print_hangman(wrong_answer)
+            guessed_letters.append(input_guess)
         else:
             print("_", end=" ")
-    guessed_letters.append(input_guess)
     print(f"\n Guessed letters:{guessed_letters}")
     return guessed_letters
 

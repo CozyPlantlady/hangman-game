@@ -18,6 +18,6 @@ def game():
         if guessed_letters not in word:
             wrong_answers += 1
             print_hangman(wrong_answers)
-        
+       
 
 game()
