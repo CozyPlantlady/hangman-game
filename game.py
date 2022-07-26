@@ -3,21 +3,56 @@ from hangman import print_hangman
 from guess import user_guess
 from word import validate_word
 
-guessed_letters = user_guess()
-word = validate_word()
+
+#def game():
+ #   """
+#    Main game loop gets functions from other files, and prints the hangman if user answers wrong
+ #   """
+#    wrong_answers = 0
+#    
+#    while wrong_answers <= 6:
+#        user_guess()
+#        if guessed_letters not in word:
+ #           wrong_answers += 1
+#            print_hangman(wrong_answers)
 
 
 def game():
     """
-    Main game loop gets functions from other files, and prints the hangman if user answers wrong
+    Takes values from user_guess and collect_guessed_letters
+    to decide which letters to print.
     """
-    wrong_answers = 0
+    word = validate_word()
+    guessed_letters = []
     print_logo()
-    while wrong_answers <= 6:
-        user_guess()
-        if guessed_letters not in word:
+    print(word)
+    input_guess = user_guess()
+    right_answers = 0
+    wrong_answers = 0
+    while wrong_answers < 6 or right_answers < len(word):
+        if input_guess in guessed_letters:
+            print(f"You already guessed {input_guess}. Try again.")
+        elif input_guess not in word:
+            print(f"Sorry, {input_guess} is not in this word.")
+            guessed_letters.append(input_guess)
             wrong_answers += 1
             print_hangman(wrong_answers)
-       
+            print(f"\n Guessed letters:{guessed_letters}")
+            return guessed_letters 
+        elif input_guess in word:
+            for letter in word:
+                if input_guess in letter:
+                    print(letter, end=" ")
+                    guessed_letters.append(input_guess)
+                    right_answers += 1
+                elif letter in guessed_letters and word:
+                    print(letter, end=" ")
+                else:
+                    print("_", end=" ")
+            print(f"\n Guessed letters:{guessed_letters}")
+            return guessed_letters
+        else:
+            print("huh. Thats weird.")
+
 
 game()

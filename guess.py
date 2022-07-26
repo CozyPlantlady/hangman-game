@@ -1,8 +1,4 @@
 from word import validate_word
-from hangman import print_hangman
-
-
-guessed_letters = []
 
 
 def user_guess():
@@ -24,6 +20,7 @@ def print_word():
     right_answer = 0
     wrong_answer = 0
     word = validate_word()
+    guessed_letters = []
     print(word)
     input_guess = user_guess()
     if input_guess in guessed_letters:
@@ -37,18 +34,10 @@ def print_word():
             print(letter, end=" ")
         elif input_guess not in word:
             print(f"Sorry, {input_guess} is not in this word.")
+            guessed_letters.append(input_guess)
             wrong_answer += 1
             print_hangman(wrong_answer)
-            guessed_letters.append(input_guess)
         else:
             print("_", end=" ")
     print(f"\n Guessed letters:{guessed_letters}")
     return guessed_letters
-
-
-guess = 0
-
-
-while guess <= 10:
-    guess += 1
-    print_word()

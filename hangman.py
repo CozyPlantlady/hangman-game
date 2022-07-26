@@ -1,8 +1,8 @@
-def print_hangman(wrong_answer):
+def print_hangman(wrong_answers):
     """
     Prints the hanged man depending on how many times user have guessed wrong
     """
-    if wrong_answer == 0:
+    if wrong_answers == 0:
         print("||======")
         print("||//   |")
         print("||/    |")
@@ -11,7 +11,7 @@ def print_hangman(wrong_answer):
         print("||")
         print("||")
         print("||.......")
-    elif wrong_answer == 1:
+    elif wrong_answers == 1:
         print("||======")
         print("||//   |")
         print("||/    |")
@@ -20,7 +20,7 @@ def print_hangman(wrong_answer):
         print("||")
         print("||")
         print("||.......")
-    elif wrong_answer == 2:
+    elif wrong_answers == 2:
         print("||======")
         print("||//   |")
         print("||/    |")
@@ -29,7 +29,7 @@ def print_hangman(wrong_answer):
         print("||")
         print("||")
         print("||.......")
-    elif wrong_answer == 3:
+    elif wrong_answers == 3:
         print("||======")
         print("||//   |")
         print("||/    |")
@@ -38,7 +38,7 @@ def print_hangman(wrong_answer):
         print("||")
         print("||")
         print("||.......")
-    elif wrong_answer == 4:
+    elif wrong_answers == 4:
         print("||======")
         print("||//   |")
         print("||/    |")
@@ -47,7 +47,7 @@ def print_hangman(wrong_answer):
         print("||")
         print("||")
         print("||.......")
-    elif wrong_answer == 5:
+    elif wrong_answers == 5:
         print("||======")
         print("||//   |")
         print("||/    |")
@@ -56,7 +56,7 @@ def print_hangman(wrong_answer):
         print("||    /")
         print("||")
         print("||.......")
-    elif wrong_answer == 6:
+    elif wrong_answers == 6:
         print("||======")
         print("||//   |")
         print("||/    |")
