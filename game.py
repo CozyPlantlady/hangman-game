@@ -17,7 +17,7 @@ def game():
     input_guess = user_guess()
     right_answers = 0
     wrong_answers = 0
-    if game_on is True:
+    while game_on is True:
         if input_guess in guessed_letters:
             print(f"You already guessed {input_guess}. Try again.")
         elif input_guess not in word:
@@ -44,9 +44,8 @@ def game():
     if right_answers == len(word):
         print("Congratulations! You WON!")
         game_on = False
-    if wrong_answers == 6:
+    elif wrong_answers == 6:
         print("Sorry, you lost :(")
         game_on = False
-
-
-game()
+    else:
+        print("Ooops")
