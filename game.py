@@ -7,13 +7,24 @@ from word import validate_word
 word = validate_word()
 guessed_letters = []
 
+correct_answers = int()
+wrong_answers = int()
+
+
+def get_point(answer):
+    """
+    Collects number of correct answers
+    """
+    points = answer
+    points += 1
+    print(f"answer is {points}")
+    return points
+
 
 def game_loop():
     """
     Loops until user loses or wins
     """
-    right_answers = 0
-    wrong_answers = 0
     input_guess = user_guess()
     print(word)
     if input_guess in guessed_letters:
@@ -21,17 +32,16 @@ def game_loop():
     elif input_guess not in word:
         print(f"Sorry, {input_guess} is not in this word.")
         guessed_letters.append(input_guess)
-        wrong_answers += 1
+        get_point(wrong_answers)
         print_hangman(wrong_answers)
         print(f"\n Guessed letters:{guessed_letters}")
-        return guessed_letters, wrong_answers
+        return guessed_letters
     elif input_guess in word:
         for letter in word:
             if input_guess in letter:
                 print(letter, end=" ")
                 guessed_letters.append(input_guess)
-                right_answers += 1
-                return right_answers
+                get_point(correct_answers)
             if letter in guessed_letters and word:
                 print(letter, end=" ")
             else:
@@ -40,8 +50,9 @@ def game_loop():
         return guessed_letters
     else:
         print("huh. Thats weird.")
-
-    if right_answers == len(word):
+        game_on = False
+        return game_on
+    if correct_answers == len(word):
         print("Congratulations! You WON!")
         game_on = False
         return game_on
@@ -49,8 +60,9 @@ def game_loop():
         print("Sorry, you lost :(")
         game_on = False
         return game_on
-    else:
-        print("Ooops")
+    print("Ooops")
+    game_on = False
+    return game_on
 
 
 def main_game():

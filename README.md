@@ -67,6 +67,8 @@ FIX: added code to remove unwanted letters/symbols from the random word.
 
 ### Not fixed
 - game doesnt loop, or keeps looping without letting user to give a new value
+- User can input more than one letter
+- Trying to add wrong answers and correct answers correctly. Currently testing a get_point function to add += 1 when guessed correctly or wrong
 
 
 ### Testing with code validators
