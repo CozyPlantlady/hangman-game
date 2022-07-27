@@ -1,3 +1,3 @@
-from game import game
+from game import main_game
 
-game()
+main_game()
