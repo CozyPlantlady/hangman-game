@@ -6,9 +6,8 @@ from word import validate_word
 
 word = validate_word()
 guessed_letters = []
-
-correct_answers = int()
-wrong_answers = int()
+correct_answers = 0
+wrong_answers = 0
 
 
 def get_point(answer):
@@ -25,8 +24,30 @@ def game_loop():
     """
     Loops until user loses or wins
     """
-    input_guess = user_guess()
+    game_on = True
+    print_logo()
     print(word)
+    while game_on is True:
+        loop_this()
+    if correct_answers == len(word):
+        print("Congratulations! You WON!")
+        game_on = False
+        return game_on
+    if wrong_answers == 6:
+        print("Sorry, you lost :(")
+        game_on = False
+        return game_on
+    print("Ooops")
+    game_on = False
+    return game_on
+
+
+def loop_this():
+    """
+    The loop that takes users answer, checks if it's correct or wrong,
+    and gives points.
+    """
+    input_guess = user_guess()
     if input_guess in guessed_letters:
         print(f"You already guessed {input_guess}. Try again.")
     elif input_guess not in word:
@@ -52,24 +73,3 @@ def game_loop():
         print("huh. Thats weird.")
         game_on = False
         return game_on
-    if correct_answers == len(word):
-        print("Congratulations! You WON!")
-        game_on = False
-        return game_on
-    if wrong_answers == 6:
-        print("Sorry, you lost :(")
-        game_on = False
-        return game_on
-    print("Ooops")
-    game_on = False
-    return game_on
-
-
-def main_game():
-    """
-    Holds the game
-    """
-    game_on = True
-    print_logo()
-    while game_on is True:
-        game_loop()
