@@ -17,7 +17,7 @@ def game_loop():
     global correct_answers
     global wrong_answers
     print_logo()
-    print(word)
+    #print(word)
     print_hangman(wrong_answers)
     while game_on is True:
         loop_this()
@@ -25,7 +25,7 @@ def game_loop():
         if correct_answers == len(word):
             print("Congratulations! You WON!")
         if wrong_answers == 6:
-            print("Sorry, you lost :(")
+            print(f"Sorry, you lost :( The word was {word}")
         print("Game has ended.")
 
 
@@ -48,8 +48,10 @@ def loop_this():
             guessed_letters.append(input_guess)
             wrong_answers += 1
             print_hangman(wrong_answers)
-            print(f"You have already guessed:\n{guessed_letters}\n")
+            print(f"Used letters:\n{guessed_letters}\n")
             return guessed_letters, wrong_answers
+        elif input_guess in word:
+            print(f"Correct! {input_guess} is in the word!")
         for letter in word:
             if input_guess in letter:
                 print(letter, end=" ")
@@ -59,6 +61,6 @@ def loop_this():
                 print(letter, end=" ")
             else:
                 print("_", end=" ")
-        print(f"\n Guessed letters:{guessed_letters}\n")
+            
     game_on = False
     return game_on
