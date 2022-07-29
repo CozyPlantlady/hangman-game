@@ -1,5 +1,5 @@
 from logo import print_logo
-from hangman import print_hangman
+from hangman import print_hangman, print_hangman_win
 from guess import user_guess
 from word import get_word
 
@@ -22,6 +22,7 @@ def game_loop():
         loop_this()
     if game_on is not True:
         if correct_answers == len(word):
+            print_hangman_win()
             print("Congratulations! You WON!")
         if wrong_answers == 6:
             print(f"Sorry, you lost :( The word was {word}")

@@ -67,3 +67,17 @@ def print_hangman(wrong_answers):
         print("||.......GAME OVER...........................\n")
     else:
         print("?")
+
+
+def print_hangman_win():
+    """
+    Picture that will be printed if user wins the game.
+    """
+    print("\n||======")
+    print("||//")
+    print("||/")
+    print("||                             YOU WON!!!")
+    print("||")
+    print("||                                 \\o/")
+    print("||                                  |")
+    print("||................................./.\\.......\n")
