@@ -17,7 +17,6 @@ def game_loop():
     global correct_answers
     global wrong_answers
     print_logo()
-    #print(word)
     print_hangman(wrong_answers)
     while game_on is True:
         loop_this()
@@ -61,6 +60,5 @@ def loop_this():
                 print(letter, end=" ")
             else:
                 print("_", end=" ")
-            
     game_on = False
     return game_on
