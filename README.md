@@ -86,6 +86,8 @@ Trying to add the number of wrong answers and correct answers correctly.
 
 
 ### Not fixed
+
+When replayed, needs to fetch a new word. and clean the guessed letters.
 All found issues fixed.
 
 
