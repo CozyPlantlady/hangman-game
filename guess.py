@@ -5,7 +5,7 @@ def user_guess():
     valid_answer = False
     while valid_answer is False:
         try:
-            input_guess = input("\nGuess a letter:").upper()
+            input_guess = input("\nGuess a letter:\n").upper()
             if input_guess.isalpha() is False:
                 raise ValueError(f"{input_guess} is not an alphabet.")
             if len(input_guess) != 1:

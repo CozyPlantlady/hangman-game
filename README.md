@@ -87,12 +87,11 @@ Trying to add the number of wrong answers and correct answers correctly.
 
 ### Not fixed
 
-When replayed, needs to fetch a new word. and clean up the list of the guessed letters.
+When replayed, game needs to fetch a new word, and clean up the list of the guessed letters.
 
 When getting a random word, needs to pick a word from list. Currently only picking a random letter.
 
-
-All found issues fixed.
+Replay currently not functional. Since time is running out, it will be saved for another day.
 
 
 
