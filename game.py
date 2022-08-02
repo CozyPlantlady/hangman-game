@@ -26,11 +26,7 @@ def game_loop():
         else:
             print_hangman_win()
             print("Congratulations! You WON!")
-        lets_continue = input("\nDo you want to play again? Y/N:").upper()
-        if lets_continue == "Y":
-            status_quo()
-        else:
-            print("Thank you for playing!")
+        print("Thank you for playing!")
 
 
 def loop_this():
@@ -68,15 +64,3 @@ def loop_this():
         print(f"\nUsed letters:\n{guessed_letters}\n")
     game_on = False
     return game_on
-
-
-def status_quo():
-    global game_on
-    game_on = True
-    global correct_answers
-    correct_answers = 0
-    global wrong_answers
-    wrong_answers = 0
-    global guessed_letters
-    guessed_letters = []
-    game_loop()
