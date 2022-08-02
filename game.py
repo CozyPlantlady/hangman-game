@@ -21,12 +21,17 @@ def game_loop():
     while game_on is True:
         loop_this()
     if game_on is not True:
-        if correct_answers == len(word):
-            print_hangman_win()
-            print("Congratulations! You WON!")
         if wrong_answers == 6:
             print(f"Sorry, you lost :( The word was {word}")
-        print("Game has ended.")
+        else:
+            print_hangman_win()
+            print("Congratulations! You WON!")
+        lets_continue = input("\nDo you want to play again? Y/N:").upper()
+        if lets_continue == "Y":
+            game_loop()
+        else: 
+            print("Thank you for playing!")
+
 
 
 def loop_this():
