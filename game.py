@@ -44,14 +44,14 @@ def loop_this():
         if input_guess in guessed_letters:
             print(f"You already guessed {input_guess}. Try again.\n")
         elif input_guess not in word:
-            print(f"Sorry, {input_guess} is not in this word.\n")
+            print(f"Sorry, {input_guess} is not in this word.")
             guessed_letters.append(input_guess)
             wrong_answers += 1
             print_hangman(wrong_answers)
             print(f"Used letters:\n{guessed_letters}\n")
             return guessed_letters, wrong_answers
         elif input_guess in word:
-            print(f"Correct! {input_guess} is in the word!")
+            print(f"Correct! {input_guess} is in the word!\n")
         for letter in word:
             if input_guess in letter:
                 print(letter, end=" ")
@@ -61,5 +61,6 @@ def loop_this():
                 print(letter, end=" ")
             else:
                 print("_", end=" ")
+        print(f"\nUsed letters:\n{guessed_letters}\n")
     game_on = False
     return game_on
