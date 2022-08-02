@@ -64,11 +64,12 @@ FIX: added code to remove unwanted letters/symbols from the random word.
 - Adding same letter to the guessed letters list, only showing the first correctly guessed letter Fixed, order that code was read was wrong.
 - Printing error message 6 times (once for each letter). fixed *for letter in word*
 - Showing the whole word when guessing a letter
+- game doesnt loop, or keeps looping without letting user to give a new value
+- User can input more than one letter. Fixed, but if user gives another invalid answer right after, the game closes.
+- Trying to add the number of wrong answers and correct answers correctly. Ended up having a global variable for these and guessed letters, as well as game_on, that triggers the ending.
 
 ### Not fixed
-- game doesnt loop, or keeps looping without letting user to give a new value
-- User can input more than one letter
-- Trying to add wrong answers and correct answers correctly. Currently testing a get_point function to add += 1 when guessed correctly or wrong
+- If user gives an invalid answer more than once the game closes.
 
 
 ### Testing with code validators
