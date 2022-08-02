@@ -1,6 +1,6 @@
 def print_logo():
     """
-    Prints out title for hangman game
+    Prints out title and welcome
     """
     print("  _    _                                                     ")
     print(" | |  | |                                                    ")
@@ -16,3 +16,9 @@ def print_logo():
     print("             \\_____|  \\__,_| |_| |_| |_|  \\___|              ")
     print("                                                             ")
     print("                                                             \n")
+    print("Lets play Hangman!")
+    print("You can guess a letter, and I'll count the points.")
+    print("Try to guess all the correct letters in a word.")
+    print("If you guess wrong 6 times, it's game over.")
+    print("\n")
+    print("Let's start!\n")
