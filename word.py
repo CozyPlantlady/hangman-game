@@ -1,7 +1,9 @@
 import requests
 
 
-request = requests.get("https://random-word-api.herokuapp.com/word?lang=en&number=1")
+request = requests.get(
+    "https://random-word-api.herokuapp.com/word?lang=en&number=1"
+    )
 
 
 def get_word():

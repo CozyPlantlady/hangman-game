@@ -74,6 +74,8 @@ FIX: added code to remove unwanted letters/symbols from the random word.
 
 ### Testing with code validators
 
+Tested with **PEP8**. Only issue was too long line in word.py-file. Line is now in several rows.
+
 
 ### DEPLOYMENT
 - Site was deployed to **Github Pages**.
@@ -88,13 +90,17 @@ FIX: added code to remove unwanted letters/symbols from the random word.
 
 Code:
 - [To remove extra symbols from random word](https://www.journaldev.com/23674/python-remove-character-from-string)
-s = 'abc12321cba'
+```
+ s = 'abc12321cba'
 
 print(s.translate({ord(i): None for i in 'abc'}))
+```
 
 
 
-### Validators:
+### Validator:
+
+[PEP8](http://pep8online.com/)
 
 ### Other things I used while coding this game:
 
