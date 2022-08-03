@@ -3,11 +3,12 @@ When I was in school, we used to play hangman on the classrooms chalkboard. It w
 
 ## Strategy
 **Hangman** is a classic word-guessing game, where user has to guess the right word. If user guesses wrong, the stick character gets another part drawn. When user has guessed wrong six times, it's game over. If user guesses all the letters right they win. 
-This game is suitable for anyone who understands english language, but its very easily translated to other languages that use latin-script alphabet. By changing the wordlist or API the game can be fit to different themes. I have chosen to use random word API with random letter length, but this too is easily customisable. I decide against letting user choose the letter length or difficulty in this project, since I want the game to start right away. Too many options are not always good. 
+This game is suitable for anyone who understands english language, but its very easily translated to other languages that use latin-script alphabet. By changing the wordlist or API the game can be fit to different themes. I have chosen to use random word API with random letter length, but this too is easily customisable. I decide against letting user choose the letter length or difficulty in this project, since I want the game to start right away. Too many options are not always good.
+
 User will most likely wish to challenge themselves, and be entertained.
 
 ## Scope
-Game lets the user guess untill they get the word right, or until they guess wrong six times. Game is unlimitedly replayable, as long as there is words left.
+Game lets the user guess untill they get the word right, or until they guess wrong six times. Game would be unlimitedly replayable, as long as there is words left.
 
 ### User goals:
 What is their goal? What problem does this product or feature solve for them?
@@ -19,30 +20,69 @@ What is their goal? What problem does this product or feature solve for them?
 - As a user I can guess a letter.
 - As a user I can choose to replay.
 
-## Structure and skeleton
-
-### Structure of the game
+## Structure of the game
 Original plan for the game
 
 ![](doc/readme-images/readme-wireframe.png "")
 
-Welcome:
-When game is started, it first greets the user with logo, and option to start the game right away or read the rules first.
+Final wireframe of the game
+![](doc/readme-images/readme-wireframe-update.png "")
 
-Rules:
+### Start:
+When game is started, it first greets the user with logo and rules. User can start playing directly.
+![](doc/readme-images/readme-welcome.png "")
 
-The game:
-The main game loop lets user to input a letter. If the letter is in the word, it is shown in the  letter field in correct spot. 
+*Rules was removed as it's own section, since the game is simple and rules can be viewed, if needed, at the start. This relieves user from making unnecessary choices*
+
+### The game:
+The main game loop lets user to input a letter. If the letter is in the word, it is shown in the  letter field in correct spot as well as added to the used letters list. 
 If letter is incorrect, it's added to the used letters list, and user loses a point.
 Game continues until all the letters in a word are guessed and word is revealed, or until user guesses wrong six times.
 
-Replay:
-User can replay by choosing "Yes".
-If user chooses "No", it takes them to the start screen.
+Correct Answer
+
+![](doc/readme-images/readme-correct-answer.png "")
+
+Wrong Answer
+
+![](doc/readme-images/readme-wrong-guess.png "")
+
+### The End / Game Over
+When user guesses all the letters in the word, a winning picture is printed. Game ends.
+
+![](doc/readme-images/readme-win.png "")
+
+If user looses, a different picture is printed. The word is revealed.
+
+![](doc/readme-images/readme-game-over.png "")
 
 ## Skeleton:
+The main challenge of this project for me was making the game loop, user input loop, and how to get data from one function to another. 
+
+After a lot of testing and failing, I chose to use **global variables** when I needed to get the variable updated several times during the game.
+
+**User input** needs to be changed to *uppercase* and it can only be a single letter that is in alphabet. Currently user can still give åäö-letters, even though they wont be found in the words. Any invalid input gives an error message, and let's user to try again without them losing any points.
+
+**Random Word API** gives a random english word. For this project it's chosen to give a random word of any length. While test playing it has given some really weird words, and it could be ideal to make a wordlist of more suitable words. However, using an API is part of what I wanted to learn in this project.
+
+**The End or Replay?** I was planning to have a replay in this game. However, I was runnign out of time, and chose to draw the line there. You can find the almost ready replay functions pushed to the **GitHub**, and then removed from game. This is not a big loss for the player, since they can just **run the program again** after playing, which is quicker than choosing to replay after game has ended.
 
 ## Surface:
+For the visual side of this project I decided to add ASCII art for both the logo and the hangman pictures. 
+
+Logo was made with [Text to ASCII generator](https://patorjk.com/software/taag).
+
+Hangman pictures were made by creator.
+```
+||======
+||//   |
+||/    |
+||     o/ -Hey! I'm OK!
+||    /|
+||    / \
+||
+||.......
+```
 
 
 ## TESTING
@@ -60,7 +100,9 @@ Word prints down as a column.
 
 When turning letters of the word to underscore, word_to_blank function returns 10 character instead of 6. Is it counting "" and []-characters? The extra symbols are coming from the API. 
 Like this:
-![](doc/readme-images/readme-glitch1.png "")
+```
+["yoking"]
+```
 - FIX: added code to remove unwanted letters/symbols from the random word.
 
 Creating a infinite loop when guessing a letter.
