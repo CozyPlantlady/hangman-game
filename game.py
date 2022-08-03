@@ -18,18 +18,23 @@ def user_guess():
     """
     global GUESSED_LETTERS
     valid_answer = False
+
     while valid_answer is False:
         try:
             input_guess = input("\nGuess a letter:\n").upper()
             if input_guess.isalpha() is False:
                 raise ValueError(f"{input_guess} is not an alphabet.")
+
             if len(input_guess) != 1:
                 raise ValueError("Please give a single letter.")
+
             if input_guess in GUESSED_LETTERS:
                 raise ValueError("You have already guessed this letter.")
+
             if len(input_guess) == 1 and input_guess.isalpha() is True:
                 valid_answer = True
                 return input_guess
+
         except ValueError as error:
             print(f"{error} Let's try again.")
 
@@ -60,16 +65,21 @@ def game_loop():
     global WORD
     global CORRECT_ANSWERS
     global WRONG_ANSWERS
+
     print_logo()
+
     while GAME_ON is True:
         loop_this()
+
     if GAME_ON is not True:
         if WRONG_ANSWERS == 6:
             print(f"Sorry, you lost :( The word was {WORD}")
         else:
             print_hangman_win()
             print("Congratulations! You WON!")
+
         lets_continue = input("\nDo you want to play again? Y/N:\n").upper()
+        
         if lets_continue == "Y":
             status_quo()
         else:

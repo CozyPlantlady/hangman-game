@@ -19,6 +19,4 @@ def print_logo():
     print("Lets play Hangman!")
     print("You can guess a letter, and I'll count the points.")
     print("Try to guess all the correct letters in a word.")
-    print("If you guess wrong 6 times, it's game over.")
-    print("\n")
-    print("Let's start!\n")
+    print("If you guess wrong 6 times, it's game over. Let's start!")
