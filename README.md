@@ -16,7 +16,7 @@ What is their goal? What problem does this product or feature solve for them?
 
 ### User Stories:
 - As a user I can start the game.
-- As a user I can find more information about how to play the game.
+- As a user I get feedback about how to play the game.
 - As a user I can guess a letter.
 - As a user I can choose to replay.
 
@@ -84,14 +84,28 @@ Hangman pictures were made by creator.
 ||.......
 ```
 
+## Testing with code validators
 
-## TESTING
+Tested with **PEP8**. Found issues fixed.
+
+## User Testing
 
 ### As a user I can start the game.
-### As a user I can find more information about how to play the game.
-### As a user I can guess a letter.
-### As a user I can choose to replay.
+As a user, I open the [app](https://game-that-is-like-hangman.herokuapp.com/). I see the text that tells me the rules of the game, and text *Let's start!* This tells me that the game has already started and is waiting for my input.
 
+### As a user I feedback about how to play the game.
+As a user, I'm given a quick reference of the rules when I start the game. When I guess a letter, I get feedback to know if my guess was wrong or right. I can see from the list of letters which letters I have already guessed. The hangman picture changes with every incorrect answer, which tells me how the game is going. 
+
+### As a user I can guess a letter.
+As a user, I can guess a letter. If I guess right, the game says "Correct! *letter* is in the word!" and prints the the word with correctly guessed letters showing.
+
+If I guess wrong, game says "Sorry, *letter* is not in this word. Then game prints out the picture of the gallow and guessed letters.
+
+If I give an invalid answer, like accidentally push a key twice, the game doesn't count it as a guess and I can guess again. 
+
+### As a user I can choose to replay. *REMOVED*
+*This feature is removed.*
+As a user I can run the program again after it has ended by pushing **RUN PROGRAM** button.
 
 ## Bugs and other issues:
 ### Fixed Issues
@@ -129,17 +143,13 @@ Trying to add the number of wrong answers and correct answers correctly.
 
 ### Not fixed
 
-When replayed, game needs to fetch a new word, and clean up the list of the guessed letters.
+When game is run on Heroku, the hangman-logo is not visible unless scrolled up. This is because there is a lot of text printed at once. Can be fixed by adjusting what is printed first.
 
-When getting a random word, needs to pick a word from list. Currently only picking a random letter.
+*For the replay-funtion, currently removed from final product:*
+- When replayed, game needs to fetch a new word, and clean up the list of the guessed letters.
+- When getting a random word, needs to pick a word from list. Currently only picking a random letter.
 
 Replay currently not functional. Since time is running out, it will be saved for another day.
-
-
-
-## Testing with code validators
-
-Tested with **PEP8**. Found issues fixed.
 
 ## DEPLOYMENT
 
