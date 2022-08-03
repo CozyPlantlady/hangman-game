@@ -140,10 +140,10 @@ If user gives an invalid answer more than once the game closes.
 Trying to add the number of wrong answers and correct answers correctly. 
 - Ended up having a global variable for these and guessed letters, as well as game_on, that triggers the ending.
 
+When game is run on Heroku, the hangman-logo is not visible unless scrolled up. This is because there is a lot of text printed at once. Can be fixed by adjusting what is printed first. 
+- Fix: First hangman picture removed for now.
 
 ### Not fixed
-
-When game is run on Heroku, the hangman-logo is not visible unless scrolled up. This is because there is a lot of text printed at once. Can be fixed by adjusting what is printed first.
 
 *For the replay-funtion, currently removed from final product:*
 - When replayed, game needs to fetch a new word, and clean up the list of the guessed letters.
@@ -209,6 +209,8 @@ Once again, thank you [Simen Daehlin](https://github.com/Eventyret/eventyret) fo
 print(s.translate({ord(i): None for i in 'abc'}))
 
 ```
+[How to import modules from another folder](https://blog.finxter.com/python-how-to-import-modules-from-another-folder/)
+
 
 ## Validator:
 
