@@ -95,17 +95,50 @@ Replay currently not functional. Since time is running out, it will be saved for
 
 
 
-### Testing with code validators
+## Testing with code validators
 
 Tested with **PEP8**. Found issues fixed.
 
-### DEPLOYMENT
-- Site was deployed to **Github Pages**.
-- From Github, I chose the current project **Hangman-game** and **Settings**.
-- On the leftside of the page there is **Pages**.
-- Choose the **Main** branch
-- Site will be published.
-- This site is published at:
+## DEPLOYMENT
+
+### Before deploying
+This project uses **request import**, so I added that to **requirements.txt**. This tells Heroku that **request** is needed for the code to run as intented. 
+```
+requests == 2.27.1
+```
+- You should be able to use **pip** to add required imports to the **requirements** automatically, but I had to find the needed code online and add it manually.
+
+For the Heroku to be able to read **user input** I added *\n* to the end of the input field. 
+
+### GitHub
+For the deployment to Heroku to work, it's important to have the final version of the project pushed to GitHub. 
+- *git add .* *git commit* and *git push* to make sure you have the latest changes in Github.
+
+### Heroku
+After logging in to **Heroku** choose *New*-button on the top right side of the screen, and choose *New app*
+
+Choose the name off the app. Since it has to be unique, I chose *game-that-is-like-hangman*.
+
+Choose your region 
+- Mine is *Europe*.
+
+Next to the **Settings**. You can find it from the *navigation bar*. Locate *Buildpacks*, and choose Python and NodeJs, in that order.
+
+Still in *Settings*, locate *Config Vars*. 
+- As suggested by Code Institute, I added *Config Var* with **key** of *PORT*, **value** of *8000*.
+
+Changes are saved automatically.
+
+Time to **Deploy**! Choose *Deploy* from *navigation bar*.
+
+This projects chosen **Deployment method** is by being **Connected to GitHub**. 
+
+After you are connected, give the name you used for your project in **GitHub**
+- This project is *hangman-game* in **GitHub**.
+
+I prefer deploying manually, so I chose **Manual deploy** and *main-branch*, *deploy branch*.
+
+Game is published at: [Hangman game](https://game-that-is-like-hangman.herokuapp.com/)
 
 
 # CREDITS

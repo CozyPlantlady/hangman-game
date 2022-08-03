@@ -64,3 +64,4 @@ def loop_this():
         print(f"\nUsed letters:\n{guessed_letters}\n")
     game_on = False
     return game_on
+
