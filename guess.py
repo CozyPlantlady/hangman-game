@@ -1,8 +1,9 @@
 def user_guess():
     """
-    Getting the user input. Turns users answer to uppercase to match the random word.
-    Gives error message if user gives too long input or uses non-alphabets.
-    Loops until valid answer is given.
+    Getting the user input. Turns users answer to uppercase to match
+    the random word. Gives error message if user gives too long input or
+    uses non-alphabets.
+    Loops until it gets valid answer.
     """
     valid_answer = False
     while valid_answer is False:
