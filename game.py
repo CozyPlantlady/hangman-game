@@ -72,14 +72,14 @@ def game_loop():
         loop_this()
 
     if GAME_ON is not True:
-        if WRONG_ANSWERS == 6:
+        if WRONG_ANSWERS == 7:
             print(f"Sorry, you lost :( The word was {WORD}")
         else:
             print_hangman_win()
             print("Congratulations! You WON!")
 
         lets_continue = input("\nDo you want to play again? Y/N:\n").upper()
-        
+
         if lets_continue == "Y":
             status_quo()
         else:
@@ -97,7 +97,7 @@ def loop_this():
     global GAME_ON
     global WORD
 
-    while WRONG_ANSWERS < 6 and CORRECT_ANSWERS < len(WORD):
+    while WRONG_ANSWERS < 7 and CORRECT_ANSWERS < len(WORD):
         input_guess = user_guess()
 
         if input_guess not in WORD:
