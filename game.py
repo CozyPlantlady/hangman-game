@@ -11,7 +11,7 @@ GUESSED_LETTERS = []
 
 def game_loop():
     """
-    Gets the random word, prints title and starts the loop_this function. 
+    Gets the random word, prints title and starts the loop_this function.
     Loops until user loses or wins
     """
     word = get_word()
