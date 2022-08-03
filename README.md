@@ -1,3 +1,34 @@
+- [Hangman game](#hangman-game)
+  * [Strategy](#strategy)
+  * [Scope](#scope)
+    + [User goals:](#user-goals-)
+    + [User Stories:](#user-stories-)
+  * [Structure of the game](#structure-of-the-game)
+    + [Start:](#start-)
+    + [The game:](#the-game-)
+    + [The End / Game Over](#the-end---game-over)
+  * [Skeleton:](#skeleton-)
+  * [Surface:](#surface-)
+  * [Testing with code validators](#testing-with-code-validators)
+  * [User Testing](#user-testing)
+    + [As a user I can start the game.](#as-a-user-i-can-start-the-game)
+    + [As a user I feedback about how to play the game.](#as-a-user-i-feedback-about-how-to-play-the-game)
+    + [As a user I can guess a letter.](#as-a-user-i-can-guess-a-letter)
+    + [As a user I can choose to replay.](#as-a-user-i-can-choose-to-replay)
+  * [Bugs and other issues:](#bugs-and-other-issues-)
+    + [Fixed Issues](#fixed-issues)
+    + [Not fixed](#not-fixed)
+  * [DEPLOYMENT](#deployment)
+    + [Before deploying](#before-deploying)
+    + [GitHub](#github)
+    + [Heroku](#heroku)
+  * [CREDITS](#credits)
+    + [Mentor:](#mentor-)
+    + [Random Word Library:](#random-word-library-)
+    + [Code:](#code-)
+    + [Validator:](#validator-)
+    + [Other things I used while coding this game:](#other-things-i-used-while-coding-this-game-)
+
 # Hangman game
 When I was in school, we used to play hangman on the classrooms chalkboard. It was exciting to try to guess, while the poor stick figure man was getting drawn... It's easy to learn, but hard enough to keep you entertained! So for my third project I'll make a hangman game you can play for your own fun.
 
@@ -8,7 +39,7 @@ This game is suitable for anyone who understands english language, but its very 
 User will most likely wish to challenge themselves, and be entertained.
 
 ## Scope
-Game lets the user guess untill they get the word right, or until they guess wrong six times. Game would be unlimitedly replayable, as long as there is words left.
+Game lets the user guess untill they get the word right, or until they guess wrong six times. Game is unlimitedly replayable, as long as there is words left in the API (and there sure is).
 
 ### User goals:
 What is their goal? What problem does this product or feature solve for them?
@@ -39,20 +70,24 @@ The main game loop lets user to input a letter. If the letter is in the word, it
 If letter is incorrect, it's added to the used letters list, and user loses a point.
 Game continues until all the letters in a word are guessed and word is revealed, or until user guesses wrong six times.
 
-Correct Answer
+**Correct Answer**
 
 ![](doc/readme-images/readme-correct-answer.png "")
 
-Wrong Answer
+**Wrong Answer**
 
 ![](doc/readme-images/readme-wrong-guess.png "")
 
 ### The End / Game Over
-When user guesses all the letters in the word, a winning picture is printed. Game ends.
+When user guesses all the letters in the word, a winning picture is printed. User is asked if they want to play again.
+
+**Picture from testing stage**
 
 ![](doc/readme-images/readme-win.png "")
 
-If user looses, a different picture is printed. The word is revealed.
+If user looses, a different picture is printed. The word is revealed. User is asked if they want to play again.
+
+** Game Over screen in final game**
 
 ![](doc/readme-images/readme-game-over.png "")
 
@@ -65,7 +100,9 @@ After a lot of testing and failing, I chose to use **global variables** when I n
 
 **Random Word API** gives a random english word. For this project it's chosen to give a random word of any length. While test playing it has given some really weird words, and it could be ideal to make a wordlist of more suitable words. However, using an API is part of what I wanted to learn in this project.
 
-**The End or Replay?** I was planning to have a replay in this game. However, I was runnign out of time, and chose to draw the line there. You can find the almost ready replay functions pushed to the **GitHub**, and then removed from game. This is not a big loss for the player, since they can just **run the program again** after playing, which is quicker than choosing to replay after game has ended.
+**The End or Replay?** I was planning to have a replay in this game. However, I was runnign out of time, and chose to draw the line there. You can find the almost ready replay functions pushed to the **GitHub**, and then removed from game. This would have not been a big loss for the player, since they can just **run the program again** after playing, which is as quick as clicking a "Y" to play again.
+
+After my last mentor meeting I was encouraged to take afinal look about the replay function, and got valuable tips on how to do it. Hence, the replay option was added to the final version of the game!
 
 ## Surface:
 For the visual side of this project I decided to add ASCII art for both the logo and the hangman pictures. 
@@ -103,9 +140,9 @@ If I guess wrong, game says "Sorry, *letter* is not in this word. Then game prin
 
 If I give an invalid answer, like accidentally push a key twice, the game doesn't count it as a guess and I can guess again. 
 
-### As a user I can choose to replay. *REMOVED*
-*This feature is removed.*
-As a user I can run the program again after it has ended by pushing **RUN PROGRAM** button.
+### As a user I can choose to replay.
+After I have finished the game (no matter if I lost or win) the game asks if I want to play again. It suggest for me to give Y or N as an answer, meaning yes or now. If I say Y, the game starts from beginning.
+If I answer N, or anything else, the game ends and I see a message that thanks me for playing.
 
 ## Bugs and other issues:
 ### Fixed Issues
@@ -113,10 +150,7 @@ Word prints down as a column.
 - FIX: add **end=" "** to print statement to make it a row.
 
 When turning letters of the word to underscore, word_to_blank function returns 10 character instead of 6. Is it counting "" and []-characters? The extra symbols are coming from the API. 
-Like this:
-```
-["yoking"]
-```
+Like this: ["yoking"]
 - FIX: added code to remove unwanted letters/symbols from the random word.
 
 Creating a infinite loop when guessing a letter.
@@ -146,13 +180,15 @@ When game is run on Heroku, the hangman-logo is not visible unless scrolled up. 
 User can cheat the game by giving any right letter until game counts that the word is long enough.
 - Fix: Moved the user_guess funtion to the game.py folder, so that it could access the global GUESSED_LETTERS variable. This makes sure that if a letter is in the word, but already guessed, it wasn't sent to guessed letters list as a duplicate.
 
+When replayed, game needs to fetch a new word, and clean up the list of the guessed letters.
+- Fixed with a new function for getting a new word, and status_quo function to set the game to starting point after user has chosen to play again.
+
+When getting a random word, needs to pick a word from list. Currently only picking a random letter.
+- Fixed. Not a list, but a new function (suggested by mentor), that fetches a new word.
+
 ### Not fixed
 
-*For the replay-funtion, currently removed from final product:*
-- When replayed, game needs to fetch a new word, and clean up the list of the guessed letters.
-- When getting a random word, needs to pick a word from list. Currently only picking a random letter.
-
-Replay currently not functional. Since time is running out, it will be saved for another day.
+It's been reported that when played, the game doesn't always take the user input. Currently unsolved. Possibly issue with timing out.
 
 ## DEPLOYMENT
 
@@ -196,15 +232,15 @@ I prefer deploying manually, so I chose **Manual deploy** and *main-branch*, *de
 Game is published at: [Hangman game](https://game-that-is-like-hangman.herokuapp.com/)
 
 
-# CREDITS
+## CREDITS
 
-## Mentor: 
+### Mentor: 
 Once again, thank you [Simen Daehlin](https://github.com/Eventyret/eventyret) for being my mentor!
 
-## Random Word Library:
+### Random Word Library:
 [Random Word API](https://random-word-api.herokuapp.com/home)
 
-## Code:
+### Code:
 [Remove character from string](https://www.journaldev.com/23674/python-remove-character-from-string)
 ```
  s = 'abc12321cba'
@@ -215,12 +251,14 @@ print(s.translate({ord(i): None for i in 'abc'}))
 [How to import modules from another folder](https://blog.finxter.com/python-how-to-import-modules-from-another-folder/)
 
 
-## Validator:
+### Validator:
 
 [PEP8](http://pep8online.com/)
 
-## Other things I used while coding this game:
+### Other things I used while coding this game:
 
 Balsamiq wireframes
 
 [Text to ASCII generator](https://patorjk.com/software/taag)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
