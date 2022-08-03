@@ -36,7 +36,8 @@ def user_guess():
 
 def status_quo():
     """
-    Clears the global variables after user have chosen to replay
+    Clears the global variables after user have chosen to replay.
+    Fetches a new random word for the new game
     """
     global GAME_ON
     GAME_ON = True
@@ -54,7 +55,7 @@ def status_quo():
 def game_loop():
     """
     Gets the random word, prints title and starts the loop_this function.
-    Loops until user loses or wins
+    Loops until user loses or wins.
     """
     global WORD
     global CORRECT_ANSWERS
@@ -68,10 +69,11 @@ def game_loop():
         else:
             print_hangman_win()
             print("Congratulations! You WON!")
-        lets_continue = input("\nDo you want to play again? Y/N:").upper()
+        lets_continue = input("\nDo you want to play again? Y/N:\n").upper()
         if lets_continue == "Y":
             status_quo()
-        else: print("Thank you for playing!")
+        else:
+            print("Thank you for playing!")
 
 
 def loop_this():
