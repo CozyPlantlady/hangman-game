@@ -1,13 +1,36 @@
 from utils.logo import print_logo
 from utils.hangman import print_hangman, print_hangman_win
 from utils.word import get_word
-from guess import user_guess
+#from guess import user_guess
 
 GAME_ON = True
 CORRECT_ANSWERS = 0
 WRONG_ANSWERS = 0
 GUESSED_LETTERS = []
 
+def user_guess():
+    """
+    Getting the user input. Turns users answer to uppercase to match
+    the random word. Gives error message if user gives too long input or
+    uses non-alphabets.
+    Loops until it gets valid answer.
+    """
+    global GUESSED_LETTERS
+    valid_answer = False
+    while valid_answer is False:
+        try:
+            input_guess = input("\nGuess a letter:\n").upper()
+            if input_guess.isalpha() is False:
+                raise ValueError(f"{input_guess} is not an alphabet.")
+            if len(input_guess) != 1:
+                raise ValueError("Please give a single letter.")
+            if input_guess in GUESSED_LETTERS:
+                raise ValueError("You have already guessed this letter.")
+            if len(input_guess) == 1 and input_guess.isalpha() is True:
+                valid_answer = True
+                return input_guess
+        except ValueError as error:
+            print(f"{error} Let's try again.")
 
 def game_loop():
     """
@@ -41,9 +64,7 @@ def loop_this():
     word = get_word()
     while WRONG_ANSWERS < 6 and CORRECT_ANSWERS < len(word):
         input_guess = user_guess()
-        if input_guess in GUESSED_LETTERS:
-            print(f"You already guessed {input_guess}. Try again.\n")
-        elif input_guess not in word:
+        if input_guess not in word:
             print(f"Sorry, {input_guess} is not in this word.")
             GUESSED_LETTERS.append(input_guess)
             WRONG_ANSWERS += 1

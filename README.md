@@ -1,3 +1,36 @@
+- [Hangman game](#hangman-game)
+  * [Strategy](#strategy)
+  * [Scope](#scope)
+    + [User goals:](#user-goals-)
+    + [User Stories:](#user-stories-)
+  * [Structure of the game](#structure-of-the-game)
+    + [Start:](#start-)
+    + [The game:](#the-game-)
+    + [The End / Game Over](#the-end---game-over)
+  * [Skeleton:](#skeleton-)
+  * [Surface:](#surface-)
+  * [Testing with code validators](#testing-with-code-validators)
+  * [User Testing](#user-testing)
+    + [As a user I can start the game.](#as-a-user-i-can-start-the-game)
+    + [As a user I feedback about how to play the game.](#as-a-user-i-feedback-about-how-to-play-the-game)
+    + [As a user I can guess a letter.](#as-a-user-i-can-guess-a-letter)
+    + [As a user I can choose to replay. *REMOVED*](#as-a-user-i-can-choose-to-replay--removed-)
+  * [Bugs and other issues:](#bugs-and-other-issues-)
+    + [Fixed Issues](#fixed-issues)
+    + [Not fixed](#not-fixed)
+  * [DEPLOYMENT](#deployment)
+    + [Before deploying](#before-deploying)
+    + [GitHub](#github)
+    + [Heroku](#heroku)
+- [CREDITS](#credits)
+  * [Mentor:](#mentor-)
+  * [Random Word Library:](#random-word-library-)
+  * [Code:](#code-)
+  * [Validator:](#validator-)
+  * [Other things I used while coding this game:](#other-things-i-used-while-coding-this-game-)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # Hangman game
 When I was in school, we used to play hangman on the classrooms chalkboard. It was exciting to try to guess, while the poor stick figure man was getting drawn... It's easy to learn, but hard enough to keep you entertained! So for my third project I'll make a hangman game you can play for your own fun.
 
