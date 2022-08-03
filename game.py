@@ -1,7 +1,7 @@
 from utils.logo import print_logo
 from utils.hangman import print_hangman, print_hangman_win
-from guess import user_guess
 from utils.word import get_word
+from guess import user_guess
 
 GAME_ON = True
 CORRECT_ANSWERS = 0
@@ -11,13 +11,13 @@ GUESSED_LETTERS = []
 
 def game_loop():
     """
+    Gets the random word, prints title and starts the loop_this function. 
     Loops until user loses or wins
     """
     word = get_word()
     global CORRECT_ANSWERS
     global WRONG_ANSWERS
     print_logo()
-    print_hangman(WRONG_ANSWERS)
     while GAME_ON is True:
         loop_this()
     if GAME_ON is not True:
@@ -26,13 +26,13 @@ def game_loop():
         else:
             print_hangman_win()
             print("Congratulations! You WON!")
-        print("Thank you for playing!")
+        print("Thank you for playing! To replay, run program again <3")
 
 
 def loop_this():
     """
     The loop that takes users answer, checks if it's correct or wrong,
-    and gives points.
+    and gives points depending of outcome.
     """
     global CORRECT_ANSWERS
     global WRONG_ANSWERS
