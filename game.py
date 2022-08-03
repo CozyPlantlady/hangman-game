@@ -1,4 +1,4 @@
-from logo import print_logo
+from utils.logo import print_logo
 from hangman import print_hangman, print_hangman_win
 from guess import user_guess
 from word import get_word
